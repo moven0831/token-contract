@@ -2,24 +2,6 @@
 ;;
 
 {-
-  # Tuple manipulation primitives
-  The names and the types are mostly self-explaining.
-  See [polymorhism with forall](https://ton.org/docs/#/func/functions?id=polymorphism-with-forall)
-  for more info on the polymorphic functions.
-
-  Note that currently values of atomic type `tuple` can't be cast to composite tuple type (e.g. `[int, cell]`)
-  and vise versa.
--}
-
-{-
-  # Lisp-style lists
-
-  Lists can be represented as nested 2-elements tuples.
-  Empty list is conventionally represented as TVM `null` value (it can be obtained by calling [null()]).
-  For example, tuple `(1, (2, (3, null)))` represents list `[1, 2, 3]`. Elements of a list can be of different types.
--}
-
-;;; Adds an element to the beginning of lisp-style list.
 forall X -> tuple cons(X head, tuple tail) asm "CONS";
 
 ;;; Extracts the head and the tail of lisp-style list.
